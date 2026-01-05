@@ -5,148 +5,96 @@
 <title>Youth Event Registration</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #1f4037, #99f2c8);
-        min-height: 100vh;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #2c3e50;
-    }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .container {
-        width: 100%;
-        max-width: 460px;
-        background: rgba(255,255,255,0.95);
-        padding: 35px;
-        border-radius: 18px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        animation: fadeSlide 0.6s ease;
-    }
+.container {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255,255,255,0.95);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
 
-    @keyframes fadeSlide {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+h2 { text-align: center; margin-bottom: 25px; }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        font-weight: 700;
-    }
+label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
 
-    label {
-        font-weight: 600;
-        margin-top: 15px;
-        display: block;
-    }
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
 
-    input {
-        width: 100%;
-        padding: 12px;
-        margin-top: 6px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        font-size: 15px;
-        transition: 0.3s;
-    }
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-    input:focus {
-        outline: none;
-        border-color: #1f4037;
-        box-shadow: 0 0 0 3px rgba(31,64,55,0.15);
-    }
+.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #1f4037, #3a7d6a);
+    color: white;
+}
 
-    button {
-        width: 100%;
-        padding: 14px;
-        margin-top: 20px;
-        border: none;
-        border-radius: 12px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+.btn-admin { width: 100%; margin-top: 10px; background: #eef2f3; }
 
-    .btn-primary {
-        background: linear-gradient(135deg, #1f4037, #3a7d6a);
-        color: white;
-    }
+.logout {
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #555, #333);
+    color: white;
+}
 
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(31,64,55,0.4);
-    }
+.delete-btn {
+    background: #e0e0e0;
+    color: #333;
+}
 
-    .btn-admin {
-        background: #eef2f3;
-        color: #1f4037;
-    }
+.delete-btn:hover {
+    background: #c62828;
+    color: white;
+}
 
-    .btn-admin:hover {
-        background: #dfe6e9;
-    }
+.result, .admin-login, .admin-panel { display: none; }
 
-    .result, .admin-login, .admin-panel {
-        display: none;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
 
-    /* RESULT LOGO AREA */
-    .logo-box {
-        width: 180px;
-        height: 180px;
-        margin: 20px auto;
-        border-radius: 20px;
-        background: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
-        animation: pop 0.5s ease;
-    }
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    font-size: 14px;
+}
 
-    @keyframes pop {
-        from { transform: scale(0.85); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-
-    .logo-box img {
-        max-width: 80%;
-        max-height: 80%;
-        object-fit: contain;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    th, td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
-    }
-
-    th {
-        background: #f0f0f0;
-    }
-
-    .logout {
-        background: linear-gradient(135deg, #e74c3c, #c0392b);
-        color: white;
-    }
-
-    .logout:hover {
-        transform: translateY(-2px);
-    }
+th {
+    background: #f5f5f5;
+}
 </style>
 </head>
 
@@ -157,15 +105,15 @@
     <h2>Youth Event Registration</h2>
 
     <label>Full Name</label>
-    <input type="text" id="name">
+    <input id="name">
 
     <label>Age</label>
     <input type="number" id="age">
 
     <label>Church</label>
-    <input type="text" id="church">
+    <input id="church">
 
-    <button class="btn-primary" onclick="register()">Submit Registration</button>
+    <button class="btn-primary" onclick="register()">Submit</button>
     <button class="btn-admin" onclick="showAdminLogin()">Login as Admin</button>
 </div>
 
@@ -174,19 +122,12 @@
     <h2>Welcome to Your Team 🎉</h2>
     <h3 id="teamName"></h3>
     <p id="teamColor"></p>
-
-    <div class="logo-box">
-        <img id="teamLogo">
-    </div>
 </div>
 
 <!-- ADMIN LOGIN -->
 <div class="container admin-login" id="adminLogin">
     <h2>Admin Login</h2>
-
-    <label>Admin Password</label>
-    <input type="password" id="adminPassword">
-
+    <input type="password" id="adminPassword" placeholder="Password">
     <button class="btn-primary" onclick="loginAdmin()">Login</button>
 </div>
 
@@ -201,6 +142,7 @@
                 <th>Age</th>
                 <th>Church</th>
                 <th>Team</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="adminTable"></tbody>
@@ -209,73 +151,83 @@
     <button class="logout" onclick="logoutAdmin()">Logout</button>
 </div>
 
-<script>
-    const ADMIN_PASSWORD = "youthadmin123";
+<!-- FIREBASE + APP LOGIC -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, push, onValue, remove } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA_996opw31YVV82k9U7sW98L0LSrv_Asw",
+  authDomain: "ypgsevent.firebaseapp.com",
+  databaseURL: "https://ypgsevent-default-rtdb.firebaseio.com",
+  projectId: "ypgsevent",
+  storageBucket: "ypgsevent.firebasestorage.app",
+  messagingSenderId: "55497113348",
+  appId: "1:55497113348:web:a6113f3c00badd13191a51"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const participantsRef = ref(db, "participants");
+
+/* ===== REGISTER ===== */
+window.register = function () {
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value;
+    const church = document.getElementById("church").value.trim();
+
+    if (!name || !age || !church) {
+        alert("Complete all fields");
+        return;
+    }
 
     const teams = [
-        { color: "White", name: "Team Truth Bearers", logo: "white.jfif" },
-        { color: "Red", name: "Gospel Warriors", logo: "red.jfif" },
-        { color: "Gold", name: "Team Christ Ambassadors", logo: "gold.jfif" }
+      { color: "White", name: "Team Truth Bearers" },
+      { color: "Red", name: "Gospel Warriors" },
+      { color: "Gold", name: "Team Christ Ambassadors" }
     ];
+    const team = teams[Math.floor(Math.random() * teams.length)];
 
-    let participants = JSON.parse(localStorage.getItem("participants")) || [];
+    /* 🔥 PUSH OBJECT TO /participants */
+    push(participantsRef, {
+        name: name,
+        age: age,
+        church: church,
+        team: team.name
+    });
 
-    function register() {
-        const name = document.getElementById("name").value;
-        const age = document.getElementById("age").value;
-        const church = document.getElementById("church").value;
+    registerPage.style.display = "none";
+    resultPage.style.display = "block";
+    teamName.innerText = team.name;
+    teamColor.innerText = "Team Color: " + team.color;
+};
 
-        if (!name || !age || !church) {
-            alert("Please complete all fields.");
-            return;
-        }
-
-        const team = teams[Math.floor(Math.random() * teams.length)];
-
-        participants.push({ name, age, church, team: team.name });
-        localStorage.setItem("participants", JSON.stringify(participants));
-
-        document.getElementById("registerPage").style.display = "none";
-        document.getElementById("resultPage").style.display = "block";
-
-        document.getElementById("teamName").innerText = team.name;
-        document.getElementById("teamColor").innerText = "Team Color: " + team.color;
-        document.getElementById("teamLogo").src = team.logo;
-    }
-
-    function showAdminLogin() {
-        document.getElementById("registerPage").style.display = "none";
-        document.getElementById("adminLogin").style.display = "block";
-    }
-
-    function loginAdmin() {
-        if (document.getElementById("adminPassword").value === ADMIN_PASSWORD) {
-            document.getElementById("adminLogin").style.display = "none";
-            document.getElementById("adminPanel").style.display = "block";
-            loadAdmin();
-        } else {
-            alert("Incorrect password");
-        }
-    }
-
-    function loadAdmin() {
-        const table = document.getElementById("adminTable");
-        table.innerHTML = "";
-        participants.forEach(p => {
-            table.innerHTML += `
-                <tr>
-                    <td>${p.name}</td>
-                    <td>${p.age}</td>
-                    <td>${p.church}</td>
-                    <td>${p.team}</td>
-                </tr>`;
+/* ===== ADMIN PANEL ===== */
+window.loadAdmin = function () {
+    onValue(participantsRef, (snapshot) => {
+        adminTable.innerHTML = "";
+        snapshot.forEach((child) => {
+            const p = child.val();
+            const key = child.key;
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${p.name}</td>
+                <td>${p.age}</td>
+                <td>${p.church}</td>
+                <td>${p.team}</td>
+                <td>
+                    <button class="delete-btn" onclick="deleteParticipant('${key}')">Delete</button>
+                </td>
+            `;
+            adminTable.appendChild(row);
         });
-    }
+    });
+};
 
-    function logoutAdmin() {
-        document.getElementById("adminPanel").style.display = "none";
-        document.getElementById("registerPage").style.display = "block";
-    }
+window.deleteParticipant = function (key) {
+    remove(ref(db, "participants/" + key));
+};
 </script>
 
 </body>
