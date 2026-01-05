@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Youth Event Registration</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #1f4037, #99f2c8);
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #2c3e50;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 460px;
+        background: rgba(255,255,255,0.95);
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: fadeSlide 0.6s ease;
+    }
+
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 700;
+    }
+
+    label {
+        font-weight: 600;
+        margin-top: 15px;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #1f4037;
+        box-shadow: 0 0 0 3px rgba(31,64,55,0.15);
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #1f4037, #3a7d6a);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(31,64,55,0.4);
+    }
+
+    .btn-admin {
+        background: #eef2f3;
+        color: #1f4037;
+    }
+
+    .btn-admin:hover {
+        background: #dfe6e9;
+    }
+
+    .result, .admin-login, .admin-panel {
+        display: none;
+    }
+
+    /* RESULT LOGO AREA */
+    .logo-box {
+        width: 180px;
+        height: 180px;
+        margin: 20px auto;
+        border-radius: 20px;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+        animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.85); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .logo-box img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background: #f0f0f0;
+    }
+
+    .logout {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+    }
+
+    .logout:hover {
+        transform: translateY(-2px);
+    }
+</style>
+</head>
+
+<body>
+
+<!-- REGISTRATION -->
+<div class="container" id="registerPage">
+    <h2>Youth Event Registration</h2>
+
+    <label>Full Name</label>
+    <input type="text" id="name">
+
+    <label>Age</label>
+    <input type="number" id="age">
+
+    <label>Church</label>
+    <input type="text" id="church">
+
+    <button class="btn-primary" onclick="register()">Submit Registration</button>
+    <button class="btn-admin" onclick="showAdminLogin()">Login as Admin</button>
+</div>
+
+<!-- RESULT -->
+<div class="container result" id="resultPage">
+    <h2>Welcome to Your Team 🎉</h2>
+    <h3 id="teamName"></h3>
+    <p id="teamColor"></p>
+
+    <div class="logo-box">
+        <img id="teamLogo">
+    </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="container admin-login" id="adminLogin">
+    <h2>Admin Login</h2>
+
+    <label>Admin Password</label>
+    <input type="password" id="adminPassword">
+
+    <button class="btn-primary" onclick="loginAdmin()">Login</button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="container admin-panel" id="adminPanel">
+    <h2>Registered Participants</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Church</th>
+                <th>Team</th>
+            </tr>
+        </thead>
+        <tbody id="adminTable"></tbody>
+    </table>
+
+    <button class="logout" onclick="logoutAdmin()">Logout</button>
+</div>
+
+<script>
+    const ADMIN_PASSWORD = "youthadmin123";
+
+    const teams = [
+        { color: "White", name: "Team Truth Bearers", logo: "white.jfif" },
+        { color: "Red", name: "Gospel Warriors", logo: "red.jfif" },
+        { color: "Gold", name: "Team Christ Ambassadors", logo: "gold.jfif" }
+    ];
+
+    let participants = JSON.parse(localStorage.getItem("participants")) || [];
+
+    function register() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const church = document.getElementById("church").value;
+
+        if (!name || !age || !church) {
+            alert("Please complete all fields.");
+            return;
+        }
+
+        const team = teams[Math.floor(Math.random() * teams.length)];
+
+        participants.push({ name, age, church, team: team.name });
+        localStorage.setItem("participants", JSON.stringify(participants));
+
+        document.getElementById("registerPage").style.display = "none";
+        document.getElementById("resultPage").style.display = "block";
+
+        document.getElementById("teamName").innerText = team.name;
+        document.getElementById("teamColor").innerText = "Team Color: " + team.color;
+        document.getElementById("teamLogo").src = team.logo;
+    }
+
+    function showAdminLogin() {
+        document.getElementById("registerPage").style.display = "none";
+        document.getElementById("adminLogin").style.display = "block";
+    }
+
+    function loginAdmin() {
+        if (document.getElementById("adminPassword").value === ADMIN_PASSWORD) {
+            document.getElementById("adminLogin").style.display = "none";
+            document.getElementById("adminPanel").style.display = "block";
+            loadAdmin();
+        } else {
+            alert("Incorrect password");
+        }
+    }
+
+    function loadAdmin() {
+        const table = document.getElementById("adminTable");
+        table.innerHTML = "";
+        participants.forEach(p => {
+            table.innerHTML += `
+                <tr>
+                    <td>${p.name}</td>
+                    <td>${p.age}</td>
+                    <td>${p.church}</td>
+                    <td>${p.team}</td>
+                </tr>`;
+        });
+    }
+
+    function logoutAdmin() {
+        document.getElementById("adminPanel").style.display = "none";
+        document.getElementById("registerPage").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
