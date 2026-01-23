@@ -102,6 +102,21 @@ button:hover {
     margin-top: 15px;
 }
 
+#inquiries {
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+#inquiries a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#inquiries a:hover {
+    color: #ff4b5c;
+}
+
+/* TABLE STYLING */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -161,11 +176,15 @@ th { background: #ff4b5c; color: #fff; }
 <div class="container result" id="resultPage">
     <h2>Thank You for Registering!</h2>
     <img src="ypg.jpg" alt="Greeting Image">
-    <button id="showQRBtn" onclick="showQR()">Click here for payment</button>
+    <button id="showQRBtn" onclick="showQR()">Pay via GCash 💳</button>
 
     <div id="qrContainer">
-        <img src="gcashqr.jpg" alt="GCash QR Code">
+        <img src="QRCODE.jpg" alt="GCash QR Code">
         <div id="thankYouMsg">We can't wait to see you!</div>
+        <div id="inquiries">
+            For inquiries and questions: 
+            <a href="https://facebook.com/YOURPAGE" target="_blank">Facebook Page</a>
+        </div>
     </div>
 </div>
 
