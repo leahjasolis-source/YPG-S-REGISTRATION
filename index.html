@@ -5,6 +5,9 @@
 <title>Youth Event Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Font for "love" theme -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
 <style>
 * { box-sizing: border-box; }
 
@@ -79,6 +82,14 @@ button:hover { opacity: 0.9; }
     border-radius: 12px;
 }
 
+/* Love-themed message */
+#thankYouMsg {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #ff4b5c;
+    margin-top: 15px;
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 480px) {
     .container { padding: 20px; font-size: 0.9em; }
@@ -110,10 +121,12 @@ button:hover { opacity: 0.9; }
 <div class="container result" id="resultPage">
     <h2>See you there! 🎉</h2>
     <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/4191949a2e1600705c1b22ba44ec8d493b0b6499/ypg.jpg" alt="Youth Event">
+    
     <button class="btn-primary" id="showQRBtn" onclick="showQR()">Show GCash QR Code</button>
 
     <div id="qrContainer">
         <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/328df7d43ee5f4aeef69c203a2543a5c1aa704f3/gcashqr.jpg" alt="GCash QR Code">
+        <div id="thankYouMsg">Thank you for registering. We can't wait to see you!</div>
     </div>
 </div>
 
