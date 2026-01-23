@@ -4,36 +4,37 @@
 <meta charset="UTF-8">
 <title>Youth Event Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Font for "love" theme -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin:0; padding:0; }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff4b5c, #000000);
+    background: linear-gradient(135deg, #ff4b5c, #000);
     min-height: 100vh;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: white;
+    color: #fff;
 }
 
 .container {
     width: 100%;
     max-width: 600px;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.85);
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     text-align: center;
 }
 
-h2 { margin-bottom: 20px; font-size: 1.8em; color: #ff4b5c; }
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #ff4b5c;
+}
 
 label {
     font-weight: 600;
@@ -47,13 +48,16 @@ input {
     padding: 14px;
     margin-top: 6px;
     border-radius: 10px;
-    border: 1px solid #ff4b5c;
+    border: 1px solid #fff;
     font-size: 1em;
     background: #000;
-    color: white;
+    color: #fff;
 }
 
-input::placeholder { color: #ccc; }
+input::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
 
 button {
     padding: 12px 16px;
@@ -63,26 +67,28 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
-    margin-top: 15px;
 }
 
-button:hover { opacity: 0.9; }
+button:hover {
+    opacity: 0.9;
+}
 
-.btn-primary { width: 100%; background: #ff4b5c; color: white; }
+.btn-primary { width: 100%; margin-top: 20px; background: #ff4b5c; color: #fff; }
 .btn-admin { width: 100%; margin-top: 10px; background: #fff; color: #000; }
-.logout { width: 100%; margin-top: 20px; background: #ff0000; color: white; }
-.delete-btn { background: #ff4b5c; color: white; }
+.logout { width: 100%; margin-top: 20px; background: #000; color: #fff; }
+.delete-btn { background: #fff; color: #000; padding: 8px 10px; }
+.delete-btn:hover { background: #ff4b5c; color: #fff; }
 
-.result, .admin-login, .admin-panel, #qrContainer { display: none; }
+.result, .admin-login, .admin-panel, #qrContainer, #showQRBtn { display: none; }
 
 .result img, #qrContainer img {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 20px;
+    width: 80%;
+    max-width: 350px;
+    margin: 20px auto;
     border-radius: 12px;
+    display: block;
 }
 
-/* Love-themed message */
 #thankYouMsg {
     font-family: 'Dancing Script', cursive;
     font-size: 1.8em;
@@ -90,11 +96,45 @@ button:hover { opacity: 0.9; }
     margin-top: 15px;
 }
 
+#showQRBtn {
+    background: #ff4b5c;
+    color: #fff;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    word-break: break-word;
+}
+
+th { background: #ff4b5c; color: #fff; }
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 480px) {
     .container { padding: 20px; font-size: 0.9em; }
     h2 { font-size: 1.5em; }
     input, button { font-size: 1em; padding: 12px; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { display: none; }
+    tr { margin-bottom: 15px; border-bottom: 2px solid #eee; }
+    td { text-align: right; padding-left: 50%; position: relative; }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        font-weight: 600;
+        text-align: left;
+    }
 }
 </style>
 </head>
@@ -117,16 +157,15 @@ button:hover { opacity: 0.9; }
     <button class="btn-admin" onclick="showAdminLogin()">Login as Admin</button>
 </div>
 
-<!-- GREETING SCREEN -->
+<!-- GREETING / RESULT SCREEN -->
 <div class="container result" id="resultPage">
-    <h2>See you there! 🎉</h2>
-    <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/4191949a2e1600705c1b22ba44ec8d493b0b6499/ypg.jpg" alt="Youth Event">
-    
-    <button class="btn-primary" id="showQRBtn" onclick="showQR()">Show GCash QR Code</button>
+    <h2>Thank You for Registering!</h2>
+    <img src="ypg.jpg" alt="Greeting Image">
+    <button id="showQRBtn" onclick="showQR()">Click here for payment</button>
 
     <div id="qrContainer">
-        <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/328df7d43ee5f4aeef69c203a2543a5c1aa704f3/gcashqr.jpg" alt="GCash QR Code">
-        <div id="thankYouMsg">Thank you for registering. We can't wait to see you!</div>
+        <img src="gcashqr.jpg" alt="GCash QR Code">
+        <div id="thankYouMsg">We can't wait to see you!</div>
     </div>
 </div>
 
@@ -140,7 +179,6 @@ button:hover { opacity: 0.9; }
 <!-- ADMIN PANEL -->
 <div class="container admin-panel" id="adminPanel">
     <h2>Registered Participants</h2>
-
     <table>
         <thead>
             <tr>
@@ -153,15 +191,12 @@ button:hover { opacity: 0.9; }
         </thead>
         <tbody id="adminTable"></tbody>
     </table>
-
     <button class="logout" onclick="logoutAdmin()">Logout</button>
 </div>
 
-<!-- FIREBASE SCRIPT -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, push, onValue, remove } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA_996opw31YVV82k9U7sW98L0LSrv_Asw",
@@ -178,6 +213,7 @@ const db = getDatabase(app);
 const participantsRef = ref(db, "participants");
 
 const ADMIN_PASSWORD = "youthadmin123";
+
 const teams = [
     { color: "White", name: "Team Truth Bearers" },
     { color: "Red", name: "Gospel Warriors" },
@@ -189,19 +225,17 @@ window.register = function () {
     const name = document.getElementById("name").value.trim();
     const age = document.getElementById("age").value;
     const church = document.getElementById("church").value.trim();
-
     if (!name || !age || !church) { alert("Complete all fields"); return; }
 
     const team = teams[Math.floor(Math.random() * teams.length)];
-
     push(participantsRef, { name, age, church, team: team.name });
 
     document.getElementById("registerPage").style.display = "none";
     document.getElementById("resultPage").style.display = "block";
 };
 
-/* ===== SHOW QR ===== */
-window.showQR = function() {
+/* ===== SHOW QR CODE ===== */
+window.showQR = function () {
     document.getElementById("qrContainer").style.display = "block";
     document.getElementById("showQRBtn").style.display = "none";
 };
@@ -256,5 +290,6 @@ window.logoutAdmin = function () {
     document.getElementById("registerPage").style.display = "block";
 };
 </script>
+
 </body>
 </html>
