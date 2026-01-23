@@ -54,10 +54,7 @@ input {
     color: #fff;
 }
 
-input::placeholder {
-    color: #fff;
-    opacity: 0.7;
-}
+input::placeholder { color: #fff; opacity: 0.7; }
 
 button {
     padding: 12px 16px;
@@ -69,9 +66,7 @@ button {
     transition: 0.2s;
 }
 
-button:hover {
-    opacity: 0.9;
-}
+button:hover { opacity: 0.9; }
 
 .btn-primary { width: 100%; margin-top: 20px; background: #ff4b5c; color: #fff; }
 .btn-admin { width: 100%; margin-top: 10px; background: #fff; color: #000; }
@@ -79,61 +74,27 @@ button:hover {
 .delete-btn { background: #fff; color: #000; padding: 8px 10px; }
 .delete-btn:hover { background: #ff4b5c; color: #fff; }
 
-.result, .admin-login, .admin-panel, #qrContainer, #showQRBtn { display: none; }
-
-.result img, #qrContainer img {
-    width: 80%;
-    max-width: 350px;
-    margin: 20px auto;
-    border-radius: 12px;
-    display: block;
-}
-
+/* Result / QR Section */
+.result { display: none; }
+#qrContainer { display: none; margin-top: 20px; }
+#qrContainer img { width: 80%; max-width: 350px; margin: 20px auto; border-radius: 12px; display: block; }
 #thankYouMsg {
     font-family: 'Dancing Script', cursive;
     font-size: 1.8em;
     color: #ff4b5c;
     margin-top: 15px;
 }
-
-#showQRBtn {
-    background: #ff4b5c;
-    color: #fff;
-    margin-top: 15px;
-}
-
-#inquiries {
-    margin-top: 15px;
-    font-size: 1em;
-}
-
-#inquiries a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-#inquiries a:hover {
-    color: #ff4b5c;
-}
+#showQRBtn { display: inline-block; background: #ff4b5c; color: #fff; margin-top: 15px; padding: 12px 20px; border-radius: 10px; cursor: pointer; }
+#inquiries { margin-top: 15px; font-size: 1em; }
+#inquiries a { color: #fff; text-decoration: underline; }
+#inquiries a:hover { color: #ff4b5c; }
 
 /* TABLE STYLING */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-    font-size: 0.95em;
-}
-
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #fff;
-    text-align: center;
-    word-break: break-word;
-}
-
+table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.95em; }
+th, td { padding: 10px; border-bottom: 1px solid #fff; text-align: center; word-break: break-word; }
 th { background: #ff4b5c; color: #fff; }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* MOBILE RESPONSIVE */
 @media (max-width: 480px) {
     .container { padding: 20px; font-size: 0.9em; }
     h2 { font-size: 1.5em; }
@@ -142,14 +103,7 @@ th { background: #ff4b5c; color: #fff; }
     thead tr { display: none; }
     tr { margin-bottom: 15px; border-bottom: 2px solid #eee; }
     td { text-align: right; padding-left: 50%; position: relative; }
-    td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        width: 45%;
-        font-weight: 600;
-        text-align: left;
-    }
+    td::before { content: attr(data-label); position: absolute; left: 15px; width: 45%; font-weight: 600; text-align: left; }
 }
 </style>
 </head>
@@ -158,16 +112,12 @@ th { background: #ff4b5c; color: #fff; }
 <!-- REGISTRATION -->
 <div class="container" id="registerPage">
     <h2>Youth Event Registration</h2>
-
     <label>Full Name</label>
     <input id="name" placeholder="Enter your full name">
-
     <label>Age</label>
     <input type="number" id="age" placeholder="Enter your age">
-
     <label>Church</label>
     <input id="church" placeholder="Enter your church">
-
     <button class="btn-primary" onclick="register()">Submit</button>
     <button class="btn-admin" onclick="showAdminLogin()">Login as Admin</button>
 </div>
@@ -176,14 +126,14 @@ th { background: #ff4b5c; color: #fff; }
 <div class="container result" id="resultPage">
     <h2>Thank You for Registering!</h2>
     <img src="ypg.jpg" alt="Greeting Image">
-    <button id="showQRBtn" onclick="showQR()">Pay via GCash 💳</button>
+    <div id="showQRBtn" onclick="showQR()">Pay via GCash 💳</div>
 
     <div id="qrContainer">
         <img src="QRCODE.jpg" alt="GCash QR Code">
         <div id="thankYouMsg">We can't wait to see you!</div>
         <div id="inquiries">
             For inquiries and questions: 
-            <a href="https://facebook.com/YOURPAGE" target="_blank">Facebook Page</a>
+            <a href="https://www.facebook.com/share/16XKJoccg5/" target="_blank">Facebook Page</a>
         </div>
     </div>
 </div>
@@ -239,42 +189,35 @@ const teams = [
     { color: "Gold", name: "Team Christ Ambassadors" }
 ];
 
-/* ===== REGISTER ===== */
 window.register = function () {
     const name = document.getElementById("name").value.trim();
     const age = document.getElementById("age").value;
     const church = document.getElementById("church").value.trim();
     if (!name || !age || !church) { alert("Complete all fields"); return; }
 
-    const team = teams[Math.floor(Math.random() * teams.length)];
-    push(participantsRef, { name, age, church, team: team.name });
+    push(participantsRef, { name, age, church, team: teams[Math.floor(Math.random()*teams.length)].name });
 
     document.getElementById("registerPage").style.display = "none";
     document.getElementById("resultPage").style.display = "block";
 };
 
-/* ===== SHOW QR CODE ===== */
 window.showQR = function () {
     document.getElementById("qrContainer").style.display = "block";
     document.getElementById("showQRBtn").style.display = "none";
 };
 
-/* ===== ADMIN ===== */
 window.showAdminLogin = function () {
     document.getElementById("registerPage").style.display = "none";
     document.getElementById("adminLogin").style.display = "block";
 };
 
 window.loginAdmin = function () {
-    if (document.getElementById("adminPassword").value !== ADMIN_PASSWORD) {
-        alert("Wrong password"); return;
-    }
+    if (document.getElementById("adminPassword").value !== ADMIN_PASSWORD) { alert("Wrong password"); return; }
     document.getElementById("adminLogin").style.display = "none";
     document.getElementById("adminPanel").style.display = "block";
     loadAdmin();
 };
 
-/* ===== LOAD ADMIN ===== */
 window.loadAdmin = function () {
     onValue(participantsRef, (snapshot) => {
         const adminTable = document.getElementById("adminTable");
@@ -297,13 +240,11 @@ window.loadAdmin = function () {
     });
 };
 
-/* ===== DELETE ===== */
 window.deleteParticipant = function (key) {
     if (!confirm("Are you sure you want to delete this participant?")) return;
     remove(ref(db, "participants/" + key));
 };
 
-/* ===== LOGOUT ===== */
 window.logoutAdmin = function () {
     document.getElementById("adminPanel").style.display = "none";
     document.getElementById("registerPage").style.display = "block";
