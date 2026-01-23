@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <title>Youth Event Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 * { box-sizing: border-box; margin:0; padding:0; }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: #000;
+    background: linear-gradient(135deg, #ff0000, #000);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,7 +19,6 @@ body {
     color: #fff;
 }
 
-/* CONTAINERS */
 .container {
     width: 100%;
     max-width: 600px;
@@ -26,109 +26,89 @@ body {
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    color: #000;
-    display: none;
     text-align: center;
+    color: #000;
 }
 
-#registerPage, .admin-login, .admin-panel, #greetingPage {
-    display: none;
+h2 { margin-bottom: 20px; font-size: 1.8em; color: #b71c1c; }
+
+label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    font-size: 1em;
+    color: #000;
 }
-
-h2 { text-align: center; margin-bottom: 20px; color:#c62828; font-size:1.8em; }
-
-label { font-weight:600; margin-top:15px; display:block; font-size:1em; color:#000; }
 
 input {
     width: 100%;
     padding: 14px;
-    margin-top:6px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    font-size:1em;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
 }
 
 button {
-    padding:12px 16px;
-    border:none;
-    border-radius:10px;
-    font-size:1em;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.2s;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-button:hover { opacity:0.9; }
+button:hover { opacity: 0.9; }
 
 .btn-primary {
-    width:100%;
-    margin-top:20px;
-    background:#c62828;
-    color:white;
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #b71c1c, #ff0000);
+    color: white;
 }
 
-.btn-admin {
-    width:100%;
-    margin-top:10px;
-    background:#000;
-    color:white;
-}
+.btn-admin { width: 100%; margin-top: 10px; background: #eee; color:#000; }
 
 .logout {
-    width:100%;
-    margin-top:20px;
-    background:#000;
-    color:white;
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #555, #333);
+    color: white;
 }
 
 .delete-btn {
-    background:#c62828;
-    color:white;
-    padding:8px 10px;
+    background: #e0e0e0;
+    color: #333;
+    padding: 8px 10px;
 }
 
-.delete-btn:hover { background:#e53935; }
-
-table {
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-    font-size:0.95em;
+.delete-btn:hover {
+    background: #c62828;
+    color: white;
 }
 
-th, td {
-    padding:10px;
-    border-bottom:1px solid #e0e0e0;
-    text-align:center;
-}
+.result, .admin-login, .admin-panel, #greetingPage { display: none; }
 
-th { background:#f5f5f5; color:#000; }
+img { border-radius: 15px; max-width: 100%; height: auto; margin-bottom: 20px; }
 
-/* GREETING QR IMAGE */
-#greetingPage img {
-    width:90%;
-    max-width:400px;
-    margin-top:20px;
-    border-radius:15px;
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width:480px) {
-    .container { padding:20px; font-size:0.9em; }
-    h2 { font-size:1.5em; }
-    input, button { font-size:1em; padding:12px; }
-    table, thead, tbody, th, td, tr { display:block; }
-    thead tr { display:none; }
-    tr { margin-bottom:15px; border-bottom:2px solid #eee; }
-    td { text-align:right; padding-left:50%; position:relative; }
-    td::before { content: attr(data-label); position:absolute; left:15px; width:45%; font-weight:600; text-align:left; }
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .container { padding: 20px; font-size: 0.9em; }
+    h2 { font-size: 1.5em; }
+    input, button { font-size: 1em; padding: 12px; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { display: none; }
+    tr { margin-bottom: 15px; border-bottom: 2px solid #eee; }
+    td { text-align: right; padding-left: 50%; position: relative; }
+    td::before { content: attr(data-label); position: absolute; left: 15px; width: 45%; font-weight: 600; text-align: left; }
 }
 </style>
 </head>
 <body>
 
 <!-- REGISTRATION -->
-<div class="container" id="registerPage" style="display:block;">
+<div class="container" id="registerPage">
     <h2>Youth Event Registration</h2>
 
     <label>Full Name</label>
@@ -147,8 +127,20 @@ th { background:#f5f5f5; color:#000; }
 <!-- GREETING PAGE -->
 <div class="container" id="greetingPage">
     <h2>See You at the Event! 🎉</h2>
-    <p>Scan the GCash QR code below to complete your payment:</p>
-    <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/main/ypg.jpg" alt="GCash QR">
+    <p>Thank you for registering. We can't wait to see you!</p>
+    
+    <!-- Greeting Image -->
+    <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/main/ypg.jpg" 
+         alt="Greeting Image">
+
+    <!-- Button to show QR code -->
+    <button class="btn-primary" id="showQRBtn">Show GCash QR Code</button>
+
+    <!-- QR Code (hidden initially) -->
+    <div id="qrContainer" style="margin-top:20px; display:none;">
+        <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/main/gcashqr.jpg" 
+             alt="GCash QR Code" style="width:95%; max-width:500px;">
+    </div>
 </div>
 
 <!-- ADMIN LOGIN -->
@@ -161,6 +153,7 @@ th { background:#f5f5f5; color:#000; }
 <!-- ADMIN PANEL -->
 <div class="container admin-panel" id="adminPanel">
     <h2>Registered Participants</h2>
+
     <table>
         <thead>
             <tr>
@@ -173,6 +166,7 @@ th { background:#f5f5f5; color:#000; }
         </thead>
         <tbody id="adminTable"></tbody>
     </table>
+
     <button class="logout" onclick="logoutAdmin()">Logout</button>
 </div>
 
@@ -204,47 +198,56 @@ const teams = [
     { color: "Gold", name: "Team Christ Ambassadors" }
 ];
 
-/* REGISTER */
-window.register = function() {
+/* ===== REGISTER ===== */
+window.register = function () {
     const name = document.getElementById("name").value.trim();
     const age = document.getElementById("age").value;
     const church = document.getElementById("church").value.trim();
 
-    if(!name || !age || !church) { alert("Complete all fields"); return; }
+    if (!name || !age || !church) { alert("Complete all fields"); return; }
 
-    const team = teams[Math.floor(Math.random()*teams.length)];
+    const team = teams[Math.floor(Math.random() * teams.length)];
 
-    push(participantsRef, { name, age, church, team: team.name });
+    push(participantsRef, {
+        name, age, church, team: team.name
+    });
 
-    document.getElementById("registerPage").style.display="none";
-    document.getElementById("greetingPage").style.display="block";
+    // Show greeting screen instead of team info
+    document.getElementById("registerPage").style.display = "none";
+    document.getElementById("greetingPage").style.display = "block";
 };
 
-/* ADMIN */
-window.showAdminLogin = function() {
-    document.getElementById("registerPage").style.display="none";
-    document.getElementById("adminLogin").style.display="block";
+/* ===== SHOW QR ===== */
+document.getElementById("showQRBtn").addEventListener("click", function() {
+    document.getElementById("qrContainer").style.display = "block";
+    this.style.display = "none"; // hide the button after click
+});
+
+/* ===== ADMIN ===== */
+window.showAdminLogin = function () {
+    document.getElementById("registerPage").style.display = "none";
+    document.getElementById("adminLogin").style.display = "block";
 };
 
-window.loginAdmin = function() {
-    if(document.getElementById("adminPassword").value!==ADMIN_PASSWORD){
+window.loginAdmin = function () {
+    if (document.getElementById("adminPassword").value !== ADMIN_PASSWORD) {
         alert("Wrong password"); return;
     }
-    document.getElementById("adminLogin").style.display="none";
-    document.getElementById("adminPanel").style.display="block";
+    document.getElementById("adminLogin").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
     loadAdmin();
 };
 
-/* LOAD ADMIN */
-window.loadAdmin = function() {
-    onValue(participantsRef,(snapshot)=>{
+/* ===== LOAD ADMIN ===== */
+window.loadAdmin = function () {
+    onValue(participantsRef, (snapshot) => {
         const adminTable = document.getElementById("adminTable");
-        adminTable.innerHTML="";
-        snapshot.forEach((child)=>{
+        adminTable.innerHTML = "";
+        snapshot.forEach((child) => {
             const p = child.val();
             const key = child.key;
             const row = document.createElement("tr");
-            row.innerHTML=`
+            row.innerHTML = `
                 <td data-label="Name">${p.name}</td>
                 <td data-label="Age">${p.age}</td>
                 <td data-label="Church">${p.church}</td>
@@ -258,16 +261,16 @@ window.loadAdmin = function() {
     });
 };
 
-/* DELETE */
-window.deleteParticipant = function(key) {
-    if(!confirm("Are you sure you want to delete this participant?")) return;
-    remove(ref(db,"participants/"+key));
+/* ===== DELETE ===== */
+window.deleteParticipant = function (key) {
+    if (!confirm("Are you sure you want to delete this participant?")) return;
+    remove(ref(db, "participants/" + key));
 };
 
-/* LOGOUT */
-window.logoutAdmin = function() {
-    document.getElementById("adminPanel").style.display="none";
-    document.getElementById("registerPage").style.display="block";
+/* ===== LOGOUT ===== */
+window.logoutAdmin = function () {
+    document.getElementById("adminPanel").style.display = "none";
+    document.getElementById("registerPage").style.display = "block";
 };
 </script>
 
