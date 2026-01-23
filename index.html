@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Youth Event Registration</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin:0; padding:0; }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #fff; /* solid white background */
+    background: linear-gradient(135deg, #b71c1c, #fff, #000); /* original red/white/black theme */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ body {
 .container {
     width: 100%;
     max-width: 600px;
-    background-color: #fff; /* solid white */
+    background: white; /* keep container white */
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -62,41 +62,15 @@ button {
 
 button:hover { opacity: 0.9; }
 
-.btn-primary {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #b71c1c; /* red */
-    color: white;
-}
-
+.btn-primary { width: 100%; margin-top: 20px; background-color: #b71c1c; color: #fff; }
 .btn-admin { width: 100%; margin-top: 10px; background-color: #000; color: #fff; }
-
-.logout {
-    width: 100%;
-    margin-top: 20px;
-    background-color: #000;
-    color: white;
-}
-
-.delete-btn {
-    background: #e0e0e0;
-    color: #333;
-    padding: 8px 10px;
-}
-
-.delete-btn:hover {
-    background: #c62828;
-    color: white;
-}
+.logout { width: 100%; margin-top: 20px; background-color: #000; color: #fff; }
+.delete-btn { background: #e0e0e0; color: #333; padding: 8px 10px; }
+.delete-btn:hover { background: #c62828; color: #fff; }
 
 .result, .admin-login, .admin-panel, #qrcodeSection { display: none; }
 
-img {
-    max-width: 90%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
+img { max-width: 90%; height: auto; border-radius: 12px; margin-bottom: 15px; }
 
 .qr-btn, .inquiry-link {
     display: block;
@@ -143,7 +117,6 @@ img {
     </p>
     <button class="qr-btn" onclick="showQRCode()">Pay via GCash 💳</button>
 
-    <!-- QR CODE IMAGE -->
     <div id="qrcodeSection">
         <img class="qrcode-img" src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/bc845cf6ef92d27fe1ac65b92276ac2f58e5838c/QRCODE.jpg" alt="GCash QR Code">
         <a class="inquiry-link" href="https://www.facebook.com/share/16XKJoccg5/" target="_blank">
@@ -164,9 +137,7 @@ img {
     <h2>Registered Participants</h2>
     <table>
         <thead>
-            <tr>
-                <th>Name</th><th>Age</th><th>Church</th><th>Team</th><th>Action</th>
-            </tr>
+            <tr><th>Name</th><th>Age</th><th>Church</th><th>Team</th><th>Action</th></tr>
         </thead>
         <tbody id="adminTable"></tbody>
     </table>
