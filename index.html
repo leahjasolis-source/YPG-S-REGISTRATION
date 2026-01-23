@@ -6,38 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing: border-box; }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff0000, #000);
+    background: linear-gradient(135deg, #ff4b5c, #000000);
     min-height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: #fff;
+    color: white;
 }
 
 .container {
     width: 100%;
     max-width: 600px;
-    background: #fff;
+    background: rgba(0,0,0,0.9);
     padding: 30px;
     border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     text-align: center;
-    color: #000;
 }
 
-h2 { margin-bottom: 20px; font-size: 1.8em; color: #b71c1c; }
+h2 { margin-bottom: 20px; font-size: 1.8em; color: #ff4b5c; }
 
 label {
     font-weight: 600;
     margin-top: 15px;
     display: block;
     font-size: 1em;
-    color: #000;
 }
 
 input {
@@ -45,63 +44,46 @@ input {
     padding: 14px;
     margin-top: 6px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff4b5c;
     font-size: 1em;
+    background: #000;
+    color: white;
 }
 
+input::placeholder { color: #ccc; }
+
 button {
-    padding: 14px 16px;
+    padding: 12px 16px;
     border: none;
     border-radius: 10px;
     font-size: 1em;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+    margin-top: 15px;
 }
 
 button:hover { opacity: 0.9; }
 
-.btn-primary {
+.btn-primary { width: 100%; background: #ff4b5c; color: white; }
+.btn-admin { width: 100%; margin-top: 10px; background: #fff; color: #000; }
+.logout { width: 100%; margin-top: 20px; background: #ff0000; color: white; }
+.delete-btn { background: #ff4b5c; color: white; }
+
+.result, .admin-login, .admin-panel, #qrContainer { display: none; }
+
+.result img, #qrContainer img {
     width: 100%;
+    max-width: 500px;
     margin-top: 20px;
-    background: linear-gradient(135deg, #b71c1c, #ff0000);
-    color: white;
+    border-radius: 12px;
 }
 
-.btn-admin { width: 100%; margin-top: 10px; background: #eee; color:#000; }
-
-.logout {
-    width: 100%;
-    margin-top: 20px;
-    background: linear-gradient(135deg, #555, #333);
-    color: white;
-}
-
-.delete-btn {
-    background: #e0e0e0;
-    color: #333;
-    padding: 8px 10px;
-}
-
-.delete-btn:hover {
-    background: #c62828;
-    color: white;
-}
-
-.result, .admin-login, .admin-panel, #greetingPage { display: none; }
-
-img { border-radius: 15px; max-width: 100%; height: auto; margin-bottom: 20px; }
-
-/* Mobile responsive */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 480px) {
     .container { padding: 20px; font-size: 0.9em; }
     h2 { font-size: 1.5em; }
     input, button { font-size: 1em; padding: 12px; }
-    table, thead, tbody, th, td, tr { display: block; }
-    thead tr { display: none; }
-    tr { margin-bottom: 15px; border-bottom: 2px solid #eee; }
-    td { text-align: right; padding-left: 50%; position: relative; }
-    td::before { content: attr(data-label); position: absolute; left: 15px; width: 45%; font-weight: 600; text-align: left; }
 }
 </style>
 </head>
@@ -112,34 +94,26 @@ img { border-radius: 15px; max-width: 100%; height: auto; margin-bottom: 20px; }
     <h2>Youth Event Registration</h2>
 
     <label>Full Name</label>
-    <input id="name">
+    <input id="name" placeholder="Enter your full name">
 
     <label>Age</label>
-    <input type="number" id="age">
+    <input type="number" id="age" placeholder="Enter your age">
 
     <label>Church</label>
-    <input id="church">
+    <input id="church" placeholder="Enter your church">
 
     <button class="btn-primary" onclick="register()">Submit</button>
     <button class="btn-admin" onclick="showAdminLogin()">Login as Admin</button>
 </div>
 
-<!-- GREETING PAGE -->
-<div class="container" id="greetingPage">
-    <h2>See You at the Event! 🎉</h2>
-    <p>Thank you for registering. We can't wait to see you!</p>
-    
-    <!-- Greeting Image -->
-    <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/main/ypg.jpg" 
-         alt="Greeting Image">
+<!-- GREETING SCREEN -->
+<div class="container result" id="resultPage">
+    <h2>See you there! 🎉</h2>
+    <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/4191949a2e1600705c1b22ba44ec8d493b0b6499/ypg.jpg" alt="Youth Event">
+    <button class="btn-primary" id="showQRBtn" onclick="showQR()">Show GCash QR Code</button>
 
-    <!-- Button to show QR code -->
-    <button class="btn-primary" id="showQRBtn">Show GCash QR Code</button>
-
-    <!-- QR Code (hidden initially) -->
-    <div id="qrContainer" style="margin-top:20px; display:none;">
-        <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/main/gcashqr.jpg" 
-             alt="GCash QR Code" style="width:95%; max-width:500px;">
+    <div id="qrContainer">
+        <img src="https://raw.githubusercontent.com/leahjasolis-source/YPG-S-REGISTRATION/328df7d43ee5f4aeef69c203a2543a5c1aa704f3/gcashqr.jpg" alt="GCash QR Code">
     </div>
 </div>
 
@@ -191,7 +165,6 @@ const db = getDatabase(app);
 const participantsRef = ref(db, "participants");
 
 const ADMIN_PASSWORD = "youthadmin123";
-
 const teams = [
     { color: "White", name: "Team Truth Bearers" },
     { color: "Red", name: "Gospel Warriors" },
@@ -208,20 +181,17 @@ window.register = function () {
 
     const team = teams[Math.floor(Math.random() * teams.length)];
 
-    push(participantsRef, {
-        name, age, church, team: team.name
-    });
+    push(participantsRef, { name, age, church, team: team.name });
 
-    // Show greeting screen instead of team info
     document.getElementById("registerPage").style.display = "none";
-    document.getElementById("greetingPage").style.display = "block";
+    document.getElementById("resultPage").style.display = "block";
 };
 
 /* ===== SHOW QR ===== */
-document.getElementById("showQRBtn").addEventListener("click", function() {
+window.showQR = function() {
     document.getElementById("qrContainer").style.display = "block";
-    this.style.display = "none"; // hide the button after click
-});
+    document.getElementById("showQRBtn").style.display = "none";
+};
 
 /* ===== ADMIN ===== */
 window.showAdminLogin = function () {
@@ -273,6 +243,5 @@ window.logoutAdmin = function () {
     document.getElementById("registerPage").style.display = "block";
 };
 </script>
-
 </body>
 </html>
