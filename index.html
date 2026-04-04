@@ -721,16 +721,6 @@ tr:hover td { background: #fff8f0; }
       </div>
       <div class="mobile-cards" id="mobileCards"></div>
 
-      <!-- Danger zone -->
-      <div style="margin-top:20px;padding:14px;background:#fff8f0;border:2px dashed var(--orange);border-radius:12px;">
-        <div style="font-family:'Black Han Sans',sans-serif;font-size:0.88em;color:var(--black);margin-bottom:8px;letter-spacing:0.5px;">🔧 ADMIN TOOLS</div>
-        <p style="font-size:0.8em;color:#666;margin-bottom:10px;">If participants still show old team names (e.g. "Team Truth Bearers"), click below to reassign everyone to Team 1–10.</p>
-        <button id="reassignBtn" style="padding:10px 16px;background:var(--orange);color:var(--black);border:2px solid var(--black);border-radius:8px;font-family:'Black Han Sans',sans-serif;font-size:0.85em;cursor:pointer;letter-spacing:0.5px;box-shadow:3px 3px 0 var(--black);">
-          🔄 REASSIGN ALL TO TEAM 1–10
-        </button>
-        <div id="reassignStatus" style="margin-top:8px;font-size:0.82em;color:#2e7d32;font-weight:700;display:none;"></div>
-      </div>
-
       <button class="logout" onclick="logoutAdmin()">LOGOUT</button>
     </div>
   </div>
@@ -1176,38 +1166,8 @@ function esc(str) {
   return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-// ── Wire up reassign button inside module scope ────────────────
-document.getElementById("reassignBtn").addEventListener("click", async function () {
-  const btn = this;
-  const status = document.getElementById("reassignStatus");
-  if (!confirm("This will reassign ALL participants to Team 1–10 evenly. Old team names will be overwritten. Continue?")) return;
 
-  btn.disabled = true;
-  btn.textContent = "⏳ Reassigning…";
-  status.style.display = "none";
 
-  const snapshot = await get(participantsRef);
-  const entries = [];
-  snapshot.forEach(child => entries.push(child.key));
-
-  if (entries.length === 0) {
-    btn.disabled = false;
-    btn.innerHTML = "🔄 REASSIGN ALL TO TEAM 1–10";
-    showToast("No participants found.");
-    return;
-  }
-
-  const teamNames = teams.map(t => t.name);
-  for (let i = 0; i < entries.length; i++) {
-    await update(ref(db, "participants/" + entries[i]), { team: teamNames[i % teamNames.length] });
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = "🔄 REASSIGN ALL TO TEAM 1–10";
-  status.textContent = `✅ Done! ${entries.length} participants reassigned to Team 1–10.`;
-  status.style.display = "block";
-  showToast("✅ All teams reassigned!");
-});
 </script>
 </body>
 </html>
