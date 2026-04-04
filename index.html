@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
   --orange:    #E8820C;
   --orange-dk: #C06A08;
@@ -17,7 +17,7 @@
   --caution:   #F5C800;
   --red:       #b71c1c;
 }
-
+ 
 body {
   font-family: 'Nunito', sans-serif;
   background-color: var(--orange);
@@ -35,7 +35,7 @@ body {
   align-items: flex-start;
   padding: 24px 12px 40px;
 }
-
+ 
 /* ── Caution tape stripe ── */
 .caution-tape {
   background: var(--caution);
@@ -62,7 +62,7 @@ body {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
+ 
 .container {
   width: 100%;
   max-width: 580px;
@@ -72,7 +72,7 @@ body {
   overflow: hidden;
   margin: 0 auto;
 }
-
+ 
 /* ── Header banner ── */
 .header-banner {
   background: var(--black);
@@ -101,7 +101,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-
+ 
 /* ── Tab switcher ── */
 .tab-bar {
   display: flex;
@@ -126,10 +126,10 @@ body {
   color: var(--black);
 }
 .tab-btn:hover:not(.active) { background: #e0dbd0; }
-
+ 
 /* ── Form body ── */
 .form-body { padding: 26px 28px 28px; }
-
+ 
 h2 {
   font-family: 'Black Han Sans', sans-serif;
   font-size: 1.2em;
@@ -142,9 +142,9 @@ h2 {
   color: #888;
   margin-bottom: 18px;
 }
-
+ 
 .form-group { margin-top: 14px; }
-
+ 
 label {
   font-weight: 700;
   display: block;
@@ -154,7 +154,7 @@ label {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
+ 
 input, select {
   width: 100%;
   padding: 12px 14px;
@@ -175,7 +175,7 @@ input:focus, select:focus {
 input.error, select.error { border-color: var(--red); }
 .error-msg { color: var(--red); font-size: 0.8em; margin-top: 4px; display: none; font-weight: 600; }
 .error-msg.show { display: block; }
-
+ 
 /* ── PDF Upload Zone ── */
 .upload-zone {
   border: 3px dashed var(--orange);
@@ -212,7 +212,7 @@ input.error, select.error { border-color: var(--red); }
   font-weight: 700;
   display: none;
 }
-
+ 
 /* PDF template note */
 .template-note {
   background: #fff8e1;
@@ -226,7 +226,7 @@ input.error, select.error { border-color: var(--red); }
 }
 .template-note strong { color: #3a2800; }
 .template-note a { color: var(--orange-dk); font-weight: 700; }
-
+ 
 /* Preview table */
 .preview-wrap {
   margin-top: 16px;
@@ -270,7 +270,7 @@ input.error, select.error { border-color: var(--red); }
   color: #2e7d32;
 }
 .preview-badge.err { background: #ffebee; color: var(--red); }
-
+ 
 /* ── Buttons ── */
 button.btn-primary {
   width: 100%;
@@ -292,7 +292,7 @@ button.btn-primary {
 button.btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
 button.btn-primary:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--black); }
 button.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 4px 4px 0 var(--black); }
-
+ 
 button.btn-admin {
   width: 100%;
   margin-top: 10px;
@@ -310,7 +310,7 @@ button.btn-admin {
   text-transform: uppercase;
 }
 button.btn-admin:hover { opacity: 0.85; }
-
+ 
 button.logout {
   width: 100%;
   margin-top: 20px;
@@ -325,7 +325,7 @@ button.logout {
   cursor: pointer;
   text-transform: uppercase;
 }
-
+ 
 /* ── Result page ── */
 .result-body { padding: 28px; text-align: center; }
 .result-body img { max-width: 86%; border-radius: 14px; margin-bottom: 16px; border: 3px solid var(--black); }
@@ -360,7 +360,7 @@ button.logout {
 }
 .qr-btn:hover, .inquiry-link:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--black); }
 #qrcodeSection { display: none; margin-top: 10px; }
-
+ 
 /* ── Admin panel ── */
 .admin-stats {
   display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px;
@@ -373,7 +373,7 @@ button.logout {
 }
 .stat-card .stat-num { font-family: 'Black Han Sans', sans-serif; font-size: 1.7em; color: var(--caution); }
 .stat-card .stat-label { font-size: 0.72em; color: #aaa; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
-
+ 
 .admin-controls {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center;
 }
@@ -391,27 +391,27 @@ button.logout {
   font-weight: 700; border: none; cursor: pointer; white-space: nowrap;
 }
 .btn-export:hover { opacity: 0.88; }
-
+ 
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 0.85em; min-width: 500px; }
 th { background: var(--black); color: var(--caution); padding: 10px 8px; text-align: left; font-family: 'Black Han Sans', sans-serif; font-size: 0.82em; letter-spacing: 0.5px; white-space: nowrap; }
 td { padding: 9px 8px; border-bottom: 1px solid #eee; vertical-align: middle; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #fff8f0; }
-
+ 
 .paid-badge {
   display: inline-block; padding: 3px 10px; border-radius: 20px;
   font-size: 0.78em; font-weight: 700; cursor: pointer; border: none; font-family: 'Nunito', sans-serif;
 }
 .paid-badge.paid   { background: #e8f5e9; color: #2e7d32; }
 .paid-badge.unpaid { background: #fff3e0; color: #e65100; }
-
+ 
 .delete-btn {
   background: #e0e0e0; color: #333; padding: 6px 10px;
   font-size: 0.8em; border-radius: 6px; border: none; cursor: pointer; font-family: 'Nunito', sans-serif;
 }
 .delete-btn:hover { background: #c62828; color: #fff; }
-
+ 
 .mobile-cards { display: none; }
 .participant-card {
   background: #fafafa; border: 1px solid #eee;
@@ -421,14 +421,14 @@ tr:hover td { background: #fff8f0; }
 .participant-card .card-row { font-size: 0.83em; color: #555; margin-bottom: 3px; }
 .participant-card .card-row span { font-weight: 700; color: #222; }
 .card-actions { display: flex; gap: 8px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
-
+ 
 /* ── Admin login ── */
 .admin-login-body { padding: 28px; }
 .admin-login-body h2 {
   font-family: 'Black Han Sans', sans-serif;
   font-size: 1.3em; color: var(--black); margin-bottom: 4px;
 }
-
+ 
 /* Spinner */
 .spinner {
   display: inline-block; width: 17px; height: 17px;
@@ -437,7 +437,7 @@ tr:hover td { background: #fff8f0; }
   vertical-align: middle; margin-right: 6px;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-
+ 
 /* Toast */
 #toast {
   position: fixed; bottom: 24px; left: 50%;
@@ -450,7 +450,7 @@ tr:hover td { background: #fff8f0; }
   border: 2px solid var(--orange);
 }
 #toast.show { transform: translateX(-50%) translateY(0); }
-
+ 
 /* Upload result summary */
 .upload-summary {
   background: #f0fff4;
@@ -463,7 +463,7 @@ tr:hover td { background: #fff8f0; }
   font-weight: 700;
   display: none;
 }
-
+ 
 /* ── Responsive ── */
 @media (max-width: 540px) {
   .form-body, .result-body, .admin-login-body { padding: 20px 16px; }
@@ -482,19 +482,19 @@ tr:hover td { background: #fff8f0; }
 </style>
 </head>
 <body>
-
+ 
 <div id="toast"></div>
-
+ 
 <!-- ═══════════════════════════════════════════
      REGISTRATION PAGE
 ═══════════════════════════════════════════ -->
 <div id="registerPage" style="width:100%;max-width:580px;margin:0 auto;">
-
+ 
   <!-- Caution Tape Top -->
   <div class="caution-tape">
     <span>⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp;</span>
   </div>
-
+ 
   <div class="container">
     <!-- Header -->
     <div class="header-banner">
@@ -510,21 +510,21 @@ tr:hover td { background: #fff8f0; }
       <h1>UFBBC 1-Day Youth Camp</h1>
       <p class="sub">🏗 Under Construction &nbsp;·&nbsp; 1 Cor 3:9 &nbsp;·&nbsp; May 12, 2026</p>
     </div>
-
+ 
     <!-- Caution tape divider -->
     <div style="background:var(--caution);height:10px;border-top:3px solid var(--black);border-bottom:3px solid var(--black);"></div>
-
+ 
     <!-- Tab bar -->
     <div class="tab-bar">
       <button class="tab-btn active" id="tab-single" onclick="switchTab('single')">👤 Single Register</button>
       <button class="tab-btn" id="tab-bulk" onclick="switchTab('bulk')">📄 Bulk Upload (PDF)</button>
     </div>
-
+ 
     <!-- SINGLE REGISTRATION -->
     <div class="form-body" id="panelSingle">
       <h2>Register Here</h2>
       <p class="section-hint">Fill in your details below to secure your spot!</p>
-
+ 
       <div class="form-group">
         <label for="name">Full Name <span style="color:var(--red)">*</span></label>
         <input id="name" type="text" placeholder="Enter your full name" autocomplete="name">
@@ -545,16 +545,16 @@ tr:hover td { background: #fff8f0; }
         <input id="contact" type="tel" placeholder="e.g. 09xxxxxxxxx" autocomplete="tel">
         <div class="error-msg" id="err-contact">Please enter a valid contact number.</div>
       </div>
-
+ 
       <button class="btn-primary" id="submitBtn" onclick="register()">🚧 SUBMIT REGISTRATION</button>
       <button class="btn-admin" onclick="showAdminLogin()">🔐 LOGIN AS ADMIN</button>
     </div>
-
+ 
     <!-- BULK PDF UPLOAD -->
     <div class="form-body" id="panelBulk" style="display:none;">
       <h2>Bulk Group Registration</h2>
       <p class="section-hint">Upload a PDF list to register multiple participants at once.</p>
-
+ 
       <div class="template-note">
         <strong>📋 PDF Format Required:</strong><br>
         Your PDF must contain a table or list with these columns in order:<br>
@@ -562,7 +562,7 @@ tr:hover td { background: #fff8f0; }
         One participant per row. The system will read the text from your PDF.<br>
         <a href="#" onclick="downloadTemplate(); return false;">⬇ Download sample template (CSV)</a>
       </div>
-
+ 
       <div class="upload-zone" id="uploadZone">
         <input type="file" id="pdfFile" accept=".pdf" onchange="handlePDFUpload(this)">
         <span class="upload-icon">📄</span>
@@ -570,7 +570,7 @@ tr:hover td { background: #fff8f0; }
         <p style="margin-top:4px;font-size:0.8em;color:#aaa;">Accepted: .pdf files only</p>
         <div class="file-name" id="fileName"></div>
       </div>
-
+ 
       <div class="preview-wrap" id="previewWrap">
         <h3>👥 Participants Found (<span id="previewCount">0</span>)</h3>
         <div class="preview-table-wrap">
@@ -584,22 +584,22 @@ tr:hover td { background: #fff8f0; }
           </table>
         </div>
       </div>
-
+ 
       <div class="upload-summary" id="uploadSummary"></div>
-
+ 
       <button class="btn-primary" id="bulkSubmitBtn" onclick="registerBulk()" style="display:none;">
         🚧 REGISTER ALL PARTICIPANTS
       </button>
       <button class="btn-admin" onclick="showAdminLogin()">🔐 LOGIN AS ADMIN</button>
     </div>
   </div>
-
+ 
   <!-- Caution tape bottom -->
   <div class="caution-tape" style="border-radius:0 0 8px 8px;">
     <span>⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp; ⚠ CAUTION: GOD'S WORK IN PROGRESS &nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════
      THANK YOU SCREEN
 ═══════════════════════════════════════════ -->
@@ -619,7 +619,7 @@ tr:hover td { background: #fff8f0; }
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════
      BULK SUCCESS SCREEN
 ═══════════════════════════════════════════ -->
@@ -639,7 +639,7 @@ tr:hover td { background: #fff8f0; }
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════
      ADMIN LOGIN
 ═══════════════════════════════════════════ -->
@@ -662,7 +662,7 @@ tr:hover td { background: #fff8f0; }
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════════════════
      ADMIN PANEL
 ═══════════════════════════════════════════ -->
@@ -720,21 +720,32 @@ tr:hover td { background: #fff8f0; }
         </table>
       </div>
       <div class="mobile-cards" id="mobileCards"></div>
+ 
+      <!-- Danger zone -->
+      <div style="margin-top:20px;padding:14px;background:#fff8f0;border:2px dashed var(--orange);border-radius:12px;">
+        <div style="font-family:'Black Han Sans',sans-serif;font-size:0.88em;color:var(--black);margin-bottom:8px;letter-spacing:0.5px;">🔧 ADMIN TOOLS</div>
+        <p style="font-size:0.8em;color:#666;margin-bottom:10px;">If participants still show old team names (e.g. "Team Truth Bearers"), click below to reassign everyone to Team 1–10.</p>
+        <button id="reassignBtn" onclick="reassignAllTeams()" style="padding:10px 16px;background:var(--orange);color:var(--black);border:2px solid var(--black);border-radius:8px;font-family:'Black Han Sans',sans-serif;font-size:0.85em;cursor:pointer;letter-spacing:0.5px;box-shadow:3px 3px 0 var(--black);">
+          🔄 REASSIGN ALL TO TEAM 1–10
+        </button>
+        <div id="reassignStatus" style="margin-top:8px;font-size:0.82em;color:#2e7d32;font-weight:700;display:none;"></div>
+      </div>
+ 
       <button class="logout" onclick="logoutAdmin()">LOGOUT</button>
     </div>
   </div>
 </div>
-
+ 
 <!-- PDF.js library for parsing PDF text -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 </script>
-
+ 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, push, onValue, remove, update, get } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
+ 
 const firebaseConfig = {
   apiKey: "AIzaSyA_996opw31YVV82k9U7sW98L0LSrv_Asw",
   authDomain: "ypgsevent.firebaseapp.com",
@@ -744,12 +755,12 @@ const firebaseConfig = {
   messagingSenderId: "55497113348",
   appId: "1:55497113348:web:a6113f3c00badd13191a51"
 };
-
+ 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const participantsRef = ref(db, "participants");
 const ADMIN_PASSWORD = "youthadmin123";
-
+ 
 const teams = [
   { name: "Team 1",  color: "#e3f2fd", text: "#0d47a1", border: "#90caf9" },
   { name: "Team 2",  color: "#ffebee", text: "#b71c1c", border: "#ef9a9a" },
@@ -762,10 +773,10 @@ const teams = [
   { name: "Team 9",  color: "#efebe9", text: "#3e2723", border: "#bcaaa4" },
   { name: "Team 10", color: "#e8eaf6", text: "#1a237e", border: "#9fa8da" }
 ];
-
+ 
 let allParticipants = {};
 let parsedBulkData  = [];
-
+ 
 // ── Helpers ────────────────────────────────────────────────────
 function showToast(msg, duration = 3000) {
   const t = document.getElementById("toast");
@@ -773,7 +784,7 @@ function showToast(msg, duration = 3000) {
   t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), duration);
 }
-
+ 
 function setError(fieldId, errId, show) {
   const f = document.getElementById(fieldId);
   const e = document.getElementById(errId);
@@ -781,10 +792,10 @@ function setError(fieldId, errId, show) {
   else       { f.classList.remove("error"); e.classList.remove("show"); }
   return !show;
 }
-
+ 
 function hide(...ids) { ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; }); }
 function show(id, display="block") { const el = document.getElementById(id); if (el) el.style.display = display; }
-
+ 
 // ── Tab switch ─────────────────────────────────────────────────
 window.switchTab = function(tab) {
   document.getElementById("panelSingle").style.display = tab === "single" ? "block" : "none";
@@ -792,13 +803,13 @@ window.switchTab = function(tab) {
   document.getElementById("tab-single").classList.toggle("active", tab === "single");
   document.getElementById("tab-bulk").classList.toggle("active", tab === "bulk");
 };
-
+ 
 // ── Reset to register ──────────────────────────────────────────
 window.resetToRegister = function () {
   hide("resultPageWrap", "bulkResultWrap", "adminLoginWrap", "adminPanelWrap");
   show("registerPage");
 };
-
+ 
 // ── Team balancing ─────────────────────────────────────────────
 async function getBalancedTeam() {
   const snapshot = await get(participantsRef);
@@ -812,7 +823,7 @@ async function getBalancedTeam() {
   const candidates = Object.keys(counts).filter(k => counts[k] === min);
   return candidates[Math.floor(Math.random() * candidates.length)];
 }
-
+ 
 // ── Duplicate check ────────────────────────────────────────────
 async function isDuplicate(name, contact) {
   const snapshot = await get(participantsRef);
@@ -825,25 +836,25 @@ async function isDuplicate(name, contact) {
   });
   return found;
 }
-
+ 
 // ── Single register ────────────────────────────────────────────
 window.register = async function () {
   const name    = document.getElementById("name").value.trim();
   const age     = document.getElementById("age").value.trim();
   const church  = document.getElementById("church").value.trim();
   const contact = document.getElementById("contact").value.trim();
-
+ 
   let valid = true;
   valid = setError("name",    "err-name",    !name)              && valid;
   valid = setError("age",     "err-age",     !age || age < 1 || age > 99) && valid;
   valid = setError("church",  "err-church",  !church)            && valid;
   valid = setError("contact", "err-contact", !/^[\d\s\+\-]{7,15}$/.test(contact)) && valid;
   if (!valid) return;
-
+ 
   const btn = document.getElementById("submitBtn");
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Checking…';
-
+ 
   const dup = await isDuplicate(name, contact);
   if (dup) {
     btn.disabled = false;
@@ -851,30 +862,30 @@ window.register = async function () {
     showToast("⚠️ You appear to already be registered!", 4000);
     return;
   }
-
+ 
   btn.innerHTML = '<span class="spinner"></span> Registering…';
   const teamName = await getBalancedTeam();
-
+ 
   await push(participantsRef, { name, age: Number(age), church, contact, team: teamName, paid: false });
-
+ 
   hide("registerPage");
   show("resultPageWrap");
   btn.disabled = false;
   btn.textContent = "🚧 SUBMIT REGISTRATION";
 };
-
-
+ 
+ 
 // ── PDF parsing ────────────────────────────────────────────────
 window.handlePDFUpload = async function (input) {
   if (!input.files || !input.files[0]) return;
   const file = input.files[0];
   document.getElementById("fileName").textContent = "📄 " + file.name;
   document.getElementById("fileName").style.display = "block";
-
+ 
   // Read PDF text using PDF.js
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-
+ 
   let fullText = "";
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
@@ -882,17 +893,17 @@ window.handlePDFUpload = async function (input) {
     const strings = content.items.map(item => item.str);
     fullText += strings.join(" ") + "\n";
   }
-
+ 
   // Parse rows — try to find lines with name | age | church | contact patterns
   parsedBulkData = parsePDFText(fullText);
   renderPreview(parsedBulkData);
 };
-
+ 
 function parsePDFText(text) {
   const results = [];
   // Split into lines
   const lines = text.split(/\n|;/).map(l => l.trim()).filter(l => l.length > 3);
-
+ 
   for (const line of lines) {
     // Try pipe-separated: Name | Age | Church | Contact
     const pipeParts = line.split(/\|/).map(s => s.trim());
@@ -903,7 +914,7 @@ function parsePDFText(text) {
         continue;
       }
     }
-
+ 
     // Try comma-separated
     const commaParts = line.split(/,/).map(s => s.trim());
     if (commaParts.length >= 4) {
@@ -913,7 +924,7 @@ function parsePDFText(text) {
         continue;
       }
     }
-
+ 
     // Try tab-separated
     const tabParts = line.split(/\t/).map(s => s.trim());
     if (tabParts.length >= 4) {
@@ -923,7 +934,7 @@ function parsePDFText(text) {
         continue;
       }
     }
-
+ 
     // Try space-heuristic: if line has a number in it (potential age)
     const spaceMatch = line.match(/^(.+?)\s+(\d{1,2})\s+(.+?)\s+([\d\+\-\s]{7,15})$/);
     if (spaceMatch) {
@@ -933,10 +944,10 @@ function parsePDFText(text) {
       }
     }
   }
-
+ 
   return results;
 }
-
+ 
 function isValidName(s) {
   return s && /^[A-Za-zÀ-ÖØ-öø-ÿ\s\.\-\']{2,60}$/.test(s) && isNaN(s);
 }
@@ -944,20 +955,20 @@ function isValidAge(s) {
   const n = parseInt(s);
   return !isNaN(n) && n >= 1 && n <= 99;
 }
-
+ 
 function renderPreview(data) {
   const wrap = document.getElementById("previewWrap");
   const body = document.getElementById("previewBody");
   const countEl = document.getElementById("previewCount");
   const bulkBtn = document.getElementById("bulkSubmitBtn");
-
+ 
   if (data.length === 0) {
     showToast("⚠️ No valid participants found in PDF. Check the format.", 5000);
     wrap.style.display = "none";
     bulkBtn.style.display = "none";
     return;
   }
-
+ 
   countEl.textContent = data.length;
   body.innerHTML = "";
   data.forEach((p, i) => {
@@ -971,20 +982,20 @@ function renderPreview(data) {
       <td><span class="preview-badge ${p.valid ? '' : 'err'}">${p.valid ? "✔ Ready" : "⚠ Check"}</span></td>`;
     body.appendChild(row);
   });
-
+ 
   wrap.style.display = "block";
   bulkBtn.style.display = "block";
 }
-
+ 
 // ── Bulk register ──────────────────────────────────────────────
 window.registerBulk = async function () {
   if (!parsedBulkData.length) return;
   const btn = document.getElementById("bulkSubmitBtn");
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Registering…';
-
+ 
   let success = 0, skipped = 0;
-
+ 
   for (const p of parsedBulkData) {
     if (!p.valid) { skipped++; continue; }
     const dup = await isDuplicate(p.name, p.contact !== "—" ? p.contact : null);
@@ -997,18 +1008,18 @@ window.registerBulk = async function () {
     });
     success++;
   }
-
+ 
   btn.disabled = false;
   btn.textContent = "🚧 REGISTER ALL PARTICIPANTS";
-
+ 
   document.getElementById("bulkSuccessMsg").textContent =
     `${success} participant${success !== 1 ? "s" : ""} registered! ${skipped ? `(${skipped} skipped as duplicates)` : ""}`;
-
+ 
   hide("registerPage");
   show("bulkResultWrap");
   parsedBulkData = [];
 };
-
+ 
 // ── Download template ──────────────────────────────────────────
 window.downloadTemplate = function () {
   const csv = `Full Name,Age,Church,Contact Number
@@ -1022,7 +1033,7 @@ Pedro Reyes,20,Living Word Baptist,09391234567`;
   URL.revokeObjectURL(url);
   showToast("✅ Template downloaded!");
 };
-
+ 
 // ── Drag & drop visual ─────────────────────────────────────────
 const uploadZone = document.getElementById("uploadZone");
 uploadZone.addEventListener("dragover", e => { e.preventDefault(); uploadZone.classList.add("dragover"); });
@@ -1041,13 +1052,13 @@ uploadZone.addEventListener("drop", e => {
     showToast("⚠️ Please drop a PDF file.");
   }
 });
-
+ 
 // ── Admin login/logout ─────────────────────────────────────────
 window.showAdminLogin = function () {
   hide("registerPage");
   show("adminLoginWrap");
 };
-
+ 
 window.loginAdmin = function () {
   if (document.getElementById("adminPassword").value !== ADMIN_PASSWORD) {
     showToast("❌ Wrong password.");
@@ -1057,12 +1068,12 @@ window.loginAdmin = function () {
   show("adminPanelWrap");
   startListening();
 };
-
+ 
 window.logoutAdmin = function () {
   hide("adminPanelWrap");
   show("registerPage");
 };
-
+ 
 // ── Real-time listener ─────────────────────────────────────────
 function startListening() {
   onValue(participantsRef, snapshot => {
@@ -1071,20 +1082,20 @@ function startListening() {
     renderAdmin();
   });
 }
-
+ 
 // ── Render admin ───────────────────────────────────────────────
 window.renderAdmin = function () {
   const query      = document.getElementById("searchInput").value.toLowerCase();
   const teamFilter = document.getElementById("filterTeam").value;
   const paidFilter = document.getElementById("filterPaid").value;
-
+ 
   const filtered = Object.entries(allParticipants).filter(([, p]) => {
     const matchSearch = p.name.toLowerCase().includes(query) || (p.church||"").toLowerCase().includes(query);
     const matchTeam   = !teamFilter || p.team === teamFilter;
     const matchPaid   = !paidFilter || (paidFilter === "paid" ? p.paid : !p.paid);
     return matchSearch && matchTeam && matchPaid;
   });
-
+ 
   const all = Object.values(allParticipants);
   document.getElementById("statTotal").textContent = all.length;
   document.getElementById("statPaid").textContent  = all.filter(p => p.paid).length;
@@ -1092,7 +1103,7 @@ window.renderAdmin = function () {
     const el = document.getElementById("statT" + i);
     if (el) el.textContent = all.filter(p => p.team === "Team " + i).length;
   }
-
+ 
   const tbody = document.getElementById("adminTable");
   tbody.innerHTML = "";
   filtered.forEach(([key, p], i) => {
@@ -1112,7 +1123,7 @@ window.renderAdmin = function () {
       <td><button class="delete-btn" onclick="deleteParticipant('${key}')">Delete</button></td>`;
     tbody.appendChild(row);
   });
-
+ 
   const cards = document.getElementById("mobileCards");
   cards.innerHTML = "";
   filtered.forEach(([key, p]) => {
@@ -1132,21 +1143,56 @@ window.renderAdmin = function () {
       </div>`;
     cards.appendChild(card);
   });
-
+ 
   if (filtered.length === 0) {
     tbody.innerHTML = "<tr><td colspan='8' style='text-align:center;color:#999;padding:20px'>No participants found.</td></tr>";
     cards.innerHTML = "<p style='text-align:center;color:#999;padding:20px'>No participants found.</p>";
   }
 };
-
+ 
 window.togglePaid = (key, cur) => update(ref(db, "participants/" + key), { paid: !cur });
-
+ 
 window.deleteParticipant = function (key) {
   if (!confirm("Delete this participant?")) return;
   remove(ref(db, "participants/" + key));
 };
-
-window.exportCSV = function () {
+ 
+// ── Reassign all participants to Team 1–10 ─────────────────────
+window.reassignAllTeams = async function () {
+  const btn = document.getElementById("reassignBtn");
+  const status = document.getElementById("reassignStatus");
+  if (!confirm("This will reassign ALL participants to Team 1–10, balancing evenly. Old team names will be overwritten. Continue?")) return;
+ 
+  btn.disabled = true;
+  btn.textContent = "Reassigning…";
+  status.style.display = "none";
+ 
+  const snapshot = await get(participantsRef);
+  const entries = [];
+  snapshot.forEach(child => entries.push({ key: child.key }));
+ 
+  if (entries.length === 0) {
+    btn.disabled = false;
+    btn.textContent = "🔄 REASSIGN ALL TO TEAM 1–10";
+    showToast("No participants to reassign.");
+    return;
+  }
+ 
+  // Round-robin across 10 teams for perfect balance
+  const teamNames = teams.map(t => t.name);
+  for (let i = 0; i < entries.length; i++) {
+    const assignedTeam = teamNames[i % teamNames.length];
+    await update(ref(db, "participants/" + entries[i].key), { team: assignedTeam });
+  }
+ 
+  btn.disabled = false;
+  btn.textContent = "🔄 REASSIGN ALL TO TEAM 1–10";
+  status.textContent = `✅ Done! ${entries.length} participants reassigned to Team 1–10.`;
+  status.style.display = "block";
+  showToast("✅ All teams reassigned!");
+};
+ 
+ 
   const rows = [["Name","Age","Church","Contact","Team","Paid"]];
   Object.values(allParticipants).forEach(p => {
     rows.push([p.name, p.age, p.church, p.contact||"", p.team, p.paid ? "Yes" : "No"]);
@@ -1159,7 +1205,7 @@ window.exportCSV = function () {
   URL.revokeObjectURL(url);
   showToast("✅ CSV downloaded!");
 };
-
+ 
 function esc(str) {
   return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
